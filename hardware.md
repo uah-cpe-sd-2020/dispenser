@@ -31,7 +31,7 @@ We plan on using ArduinoIDE to program the NodeMCU. See documentation [here](htt
 | ADC.0     | Bourn 3382 | Sense position of the bowl |
 | RESERVED  |  |  |
 | RESERVED  |  |  |
-| GPIO.10   |  |  |
+| GPIO.10   | PES.Out |  |
 | GPIO.09   | RC522.4 |  |
 | MOSI      | RC522.6 |  |
 | CS        | RC522.8 |  |
@@ -101,6 +101,16 @@ We are using an PhotoElectric Switch to determine whether the bowl is full or no
 <img src="img/photoelectricswitch-pinout.jpg"/>
 
 We plan on buying [this one](https://www.amazon.com/Infrared-Avoidance-Transmitting-Receiving-Photoelectric/dp/B07PFCC76N/ref=sr_1_1_sspa?dchild=1&keywords=ir+sensor&qid=1611867120&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExSEVUOVhPWDRGM0VPJmVuY3J5cHRlZElkPUEwMTE1NTYzMjIxMUFQUVFRUFFGUiZlbmNyeXB0ZWRBZElkPUExMDEyMzcyMU9aR0JHOUFHSk1GUSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=)
+
+### PhotoElectric Switch Pinout
+
+Known as PES
+
+| Pin   | Connected to | Purpose |
+| ---   | ------------ | ------- |
+| Out | NodeMCU.GPIO.10 |  |
+| GND |  |  |
+| Vcc | Vcc | 3.3V or 5V (Check Spec sheet on delivery) |
 
 ## NFC Scanning - RC522
 
