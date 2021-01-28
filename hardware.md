@@ -18,6 +18,8 @@ NodeMCU
 - [X] 14 GPIO pins
 - [X] 1 ADC
 
+We plan on using ArduinoIDE to program the NodeMCU. See documentation [here](https://create.arduino.cc/projecthub/najad/using-arduino-ide-to-program-nodemcu-33e899)
+
 ## Pinnout
 
 <img src="img/nodeMCU_pinout.jpg"/>
@@ -26,15 +28,15 @@ NodeMCU
 
 | Pin       | Connected To | Purpose |
 | ---       | ------------ | ------- |
-| ADC.0     |  |  |
+| ADC.0     | Bourn 3382 | Sense position of the bowl |
 | RESERVED  |  |  |
 | RESERVED  |  |  |
 | GPIO.10   |  |  |
-| GPIO.09   |  |  |
-| MOSI      |  |  |
-| CS        |  |  |
-| MISO      |  |  |
-| SCLK      |  |  |
+| GPIO.09   | RC522.4 |  |
+| MOSI      | RC522.6 |  |
+| CS        | RC522.8 |  |
+| MISO      | RC522.5 |  |
+| SCLK      | RC522.7 |  |
 | GND       |  |  |
 | 3.3V      |  |  |
 | EN        |  |  |
@@ -107,3 +109,16 @@ We plan to use an RC522 RFID reader.
 <img src="img/RC522-RFID-Reader-Writer-Module-Pinout.png"/>
 
 More documentation can be found [Here](https://lastminuteengineers.com/how-rfid-works-rc522-arduino-tutorial/)
+
+### RC522 Pinout
+
+| Pin   | Connected to | Purpose |
+| ---   | ------------ | ------- |
+| 8     | NodeMCU.CS | Chip Select |
+| 7     | NodeMCU.SCK | Serial Clock |
+| 6     | NodeMCU.MOSI |  |
+| 5     | NodeMCU.MISO |  |
+| 4     | NodeMCU.GPIO.09 | IRQ alerts micro-controller of RFID present |
+| 3     | GND |  |
+| 2     | Vcc | RST.  Board resets when low input is received |
+| 1     | Vcc | Needs 3.3V __(NO 5 V)__|
