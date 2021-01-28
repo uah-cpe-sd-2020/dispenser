@@ -20,6 +20,8 @@ NodeMCU
 
 We plan on using ArduinoIDE to program the NodeMCU. See documentation [here](https://create.arduino.cc/projecthub/najad/using-arduino-ide-to-program-nodemcu-33e899)
 
+[NodeMCU](https://www.nodemcu.com/index_en.html)
+
 ## Pinnout
 
 <img src="img/nodeMCU_pinout.jpg"/>
