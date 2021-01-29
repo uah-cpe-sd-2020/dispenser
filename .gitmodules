@@ -1,0 +1,6 @@
+[submodule "ESP8266-LIB"]
+	path = kicad-ESP8266
+	url = git@github.com:jdunmire/kicad-ESP8266.git
+[submodule "RC522-LIB"]
+	path = some-kicad-components
+	url = git@github.com:DAlexis/some-kicad-components.git

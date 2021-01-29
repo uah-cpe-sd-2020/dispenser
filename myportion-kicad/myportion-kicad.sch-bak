@@ -1,0 +1,368 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ESP8266:NodeMCU_1.0_(ESP-12E) U1
+U 1 1 6014BF17
+P 4050 3850
+F 0 "U1" H 4050 4937 60  0000 C CNN
+F 1 "NodeMCU_1.0_(ESP-12E)" H 4050 4831 60  0000 C CNN
+F 2 "" H 3450 3000 60  0000 C CNN
+F 3 "" H 3450 3000 60  0000 C CNN
+	1    4050 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Driver_Motor:Pololu_Breakout_A4988 A2
+U 1 1 6014F3F0
+P 7150 5050
+F 0 "A2" H 7200 5931 50  0000 C CNN
+F 1 "Pololu_Breakout_A4988" H 7200 5840 50  0000 C CNN
+F 2 "Module:Pololu_Breakout-16_15.2x20.3mm" H 7425 4300 50  0001 L CNN
+F 3 "https://www.pololu.com/product/2980/pictures" H 7250 4750 50  0001 C CNN
+	1    7150 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Variable R1
+U 1 1 6015693C
+P 2400 1950
+F 0 "R1" H 2528 1996 50  0000 L CNN
+F 1 "R_Variable" H 2528 1905 50  0000 L CNN
+F 2 "" V 2330 1950 50  0001 C CNN
+F 3 "~" H 2400 1950 50  0001 C CNN
+	1    2400 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L rfid-rc522-module:RFID-RC522-MODULE P1
+U 1 1 601587C2
+P 950 3600
+F 0 "P1" H 1578 3520 60  0000 L CNN
+F 1 "RFID-RC522-MODULE" H 1578 3414 60  0000 L CNN
+F 2 "" H 950 3600 60  0000 C CNN
+F 3 "" H 950 3600 60  0000 C CNN
+	1    950  3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Motor:Stepper_Motor_bipolar M?
+U 1 1 6015A26E
+P 8250 2300
+F 0 "M?" H 8438 2424 50  0000 L CNN
+F 1 "Stepper_Motor_bipolar" H 8438 2333 50  0000 L CNN
+F 2 "" H 8260 2290 50  0001 C CNN
+F 3 "http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0" H 8260 2290 50  0001 C CNN
+	1    8250 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Motor:Stepper_Motor_bipolar M?
+U 1 1 6015C246
+P 8300 5100
+F 0 "M?" H 8488 5224 50  0000 L CNN
+F 1 "Stepper_Motor_bipolar" H 8488 5133 50  0000 L CNN
+F 2 "" H 8310 5090 50  0001 C CNN
+F 3 "http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0" H 8310 5090 50  0001 C CNN
+	1    8300 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR?
+U 1 1 60161ACC
+P 7250 1350
+F 0 "#PWR?" H 7250 1200 50  0001 C CNN
+F 1 "+12V" H 7265 1523 50  0000 C CNN
+F 2 "" H 7250 1350 50  0001 C CNN
+F 3 "" H 7250 1350 50  0001 C CNN
+	1    7250 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6016371B
+P 3000 4450
+F 0 "#PWR?" H 3000 4200 50  0001 C CNN
+F 1 "GND" H 3005 4277 50  0000 C CNN
+F 2 "" H 3000 4450 50  0001 C CNN
+F 3 "" H 3000 4450 50  0001 C CNN
+	1    3000 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 4450 3000 4450
+$Comp
+L power:GND #PWR?
+U 1 1 60182DBB
+P 7250 3250
+F 0 "#PWR?" H 7250 3000 50  0001 C CNN
+F 1 "GND" H 7255 3077 50  0000 C CNN
+F 2 "" H 7250 3250 50  0001 C CNN
+F 3 "" H 7250 3250 50  0001 C CNN
+	1    7250 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 60183FAA
+P 7350 6050
+F 0 "#PWR?" H 7350 5800 50  0001 C CNN
+F 1 "GND" H 7355 5877 50  0000 C CNN
+F 2 "" H 7350 6050 50  0001 C CNN
+F 3 "" H 7350 6050 50  0001 C CNN
+	1    7350 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 3050 7250 3250
+Wire Wire Line
+	7350 5850 7350 6050
+Wire Wire Line
+	7050 3050 7250 3050
+Wire Wire Line
+	7150 5850 7350 5850
+Connection ~ 7350 5850
+Wire Wire Line
+	7550 2450 7950 2450
+Wire Wire Line
+	7950 2450 7950 2400
+Wire Wire Line
+	7550 2350 7950 2350
+Wire Wire Line
+	7950 2350 7950 2200
+Wire Wire Line
+	7550 2250 7850 2250
+Wire Wire Line
+	7850 2250 7850 2000
+Wire Wire Line
+	7850 2000 8150 2000
+Wire Wire Line
+	7550 2150 7750 2150
+Wire Wire Line
+	7750 2150 7750 1950
+Wire Wire Line
+	7750 1950 8350 1950
+Wire Wire Line
+	8350 1950 8350 2000
+Wire Wire Line
+	7650 5250 8000 5250
+Wire Wire Line
+	8000 5250 8000 5200
+Wire Wire Line
+	7650 5150 7950 5150
+Wire Wire Line
+	7950 5150 7950 5000
+Wire Wire Line
+	7950 5000 8000 5000
+Wire Wire Line
+	7650 5050 7900 5050
+Wire Wire Line
+	7900 5050 7900 4800
+Wire Wire Line
+	7900 4800 8200 4800
+Wire Wire Line
+	7650 4950 7850 4950
+Wire Wire Line
+	7850 4950 7850 4750
+Wire Wire Line
+	7850 4750 8400 4750
+Wire Wire Line
+	8400 4750 8400 4800
+Wire Wire Line
+	1500 3100 2950 3100
+Wire Wire Line
+	2950 3100 2950 4150
+Wire Wire Line
+	2950 4150 3250 4150
+Wire Wire Line
+	1500 3250 2900 3250
+Wire Wire Line
+	2900 3250 2900 3450
+Wire Wire Line
+	2900 3450 3250 3450
+Wire Wire Line
+	1500 3550 3250 3550
+Wire Wire Line
+	1500 3700 2900 3700
+Wire Wire Line
+	2900 3700 2900 3850
+Wire Wire Line
+	2900 3850 3250 3850
+Wire Wire Line
+	2850 3850 2850 3650
+Wire Wire Line
+	2850 3650 3250 3650
+Wire Wire Line
+	1500 3850 2850 3850
+Wire Wire Line
+	1900 3950 1900 4000
+Wire Wire Line
+	1900 4000 1500 4000
+Wire Wire Line
+	1900 3950 3250 3950
+Wire Wire Line
+	3250 3750 2750 3750
+Wire Wire Line
+	2750 3750 2750 4150
+Wire Wire Line
+	2750 4150 1500 4150
+Wire Wire Line
+	1500 3400 1700 3400
+Wire Wire Line
+	1700 3400 1700 4450
+Wire Wire Line
+	1700 4450 3000 4450
+Connection ~ 3000 4450
+Wire Wire Line
+	3250 4050 3000 4050
+Wire Wire Line
+	3000 4050 3000 4450
+$Comp
+L Device:R R?
+U 1 1 601DE619
+P 2400 2350
+F 0 "R?" H 2470 2396 50  0000 L CNN
+F 1 "R" H 2470 2305 50  0000 L CNN
+F 2 "" V 2330 2350 50  0001 C CNN
+F 3 "~" H 2400 2350 50  0001 C CNN
+	1    2400 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 601ECBDC
+P 2400 2700
+F 0 "#PWR?" H 2400 2450 50  0001 C CNN
+F 1 "GND" H 2405 2527 50  0000 C CNN
+F 2 "" H 2400 2700 50  0001 C CNN
+F 3 "" H 2400 2700 50  0001 C CNN
+	1    2400 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR?
+U 1 1 601ED72A
+P 2400 1600
+F 0 "#PWR?" H 2400 1450 50  0001 C CNN
+F 1 "+3.3V" H 2415 1773 50  0000 C CNN
+F 2 "" H 2400 1600 50  0001 C CNN
+F 3 "" H 2400 1600 50  0001 C CNN
+	1    2400 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 1600 2400 1800
+Wire Wire Line
+	2400 2100 2400 2150
+Wire Wire Line
+	2400 2500 2400 2700
+Wire Wire Line
+	3250 3150 3050 3150
+Wire Wire Line
+	3050 3150 3050 2150
+Wire Wire Line
+	3050 2150 2400 2150
+Connection ~ 2400 2150
+Wire Wire Line
+	2400 2150 2400 2200
+$Comp
+L power:+3.3V #PWR?
+U 1 1 601F4640
+P 3150 4550
+F 0 "#PWR?" H 3150 4400 50  0001 C CNN
+F 1 "+3.3V" H 3165 4723 50  0000 C CNN
+F 2 "" H 3150 4550 50  0001 C CNN
+F 3 "" H 3150 4550 50  0001 C CNN
+	1    3150 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 4550 3250 4550
+Connection ~ 7250 3050
+$Comp
+L Driver_Motor:Pololu_Breakout_A4988 A1
+U 1 1 6014EA75
+P 7050 2250
+F 0 "A1" H 7100 3131 50  0000 C CNN
+F 1 "Pololu_Breakout_A4988" H 7100 3040 50  0000 C CNN
+F 2 "Module:Pololu_Breakout-16_15.2x20.3mm" H 7325 1500 50  0001 L CNN
+F 3 "https://www.pololu.com/product/2980/pictures" H 7150 1950 50  0001 C CNN
+	1    7050 2250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7250 1550 7250 1350
+$Comp
+L power:+12V #PWR?
+U 1 1 602050BF
+P 7350 4050
+F 0 "#PWR?" H 7350 3900 50  0001 C CNN
+F 1 "+12V" H 7365 4223 50  0000 C CNN
+F 2 "" H 7350 4050 50  0001 C CNN
+F 3 "" H 7350 4050 50  0001 C CNN
+	1    7350 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7350 4050 7350 4350
+Wire Wire Line
+	4850 3450 5900 3450
+Wire Wire Line
+	5900 3450 5900 1850
+Wire Wire Line
+	5900 1850 6650 1850
+Wire Wire Line
+	4850 3550 6000 3550
+Wire Wire Line
+	6000 3550 6000 1950
+Wire Wire Line
+	6000 1950 6650 1950
+Wire Wire Line
+	6650 2250 6150 2250
+Wire Wire Line
+	6150 2250 6150 3850
+Wire Wire Line
+	6150 3850 4850 3850
+Wire Wire Line
+	4850 3950 6250 3950
+Wire Wire Line
+	6250 3950 6250 2350
+Wire Wire Line
+	6250 2350 6650 2350
+Wire Wire Line
+	6750 4650 6350 4650
+Wire Wire Line
+	6350 4650 6350 4050
+Wire Wire Line
+	6350 4050 4850 4050
+Wire Wire Line
+	4850 4150 6250 4150
+Wire Wire Line
+	6250 4150 6250 4750
+Wire Wire Line
+	6250 4750 6750 4750
+Wire Wire Line
+	4850 4250 6150 4250
+Wire Wire Line
+	6150 4250 6150 5050
+Wire Wire Line
+	6150 5050 6750 5050
+Wire Wire Line
+	6750 5150 6050 5150
+Wire Wire Line
+	6050 5150 6050 4350
+Wire Wire Line
+	6050 4350 4850 4350
+$EndSCHEMATC
