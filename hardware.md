@@ -22,6 +22,8 @@ We plan on using ArduinoIDE to program the NodeMCU. See documentation [here](htt
 
 [NodeMCU](https://www.nodemcu.com/index_en.html)
 
+The NodeMCU can be purchased [here](https://www.amazon.com/gp/product/B081CSJV2V/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+
 ## Pinnout
 
 <img src="img/nodeMCU_pinout.jpg"/>
@@ -144,13 +146,15 @@ We plan on using a Bourn 3382 angular position sensor.  This will be tied to the
 
 [Spec Sheet](https://www.bourns.com/pdfs/3382.pdf)
 
+The Bourn 3382 can be purchased [here](https://www.digikey.com/en/products/detail/3382G-1-503G/3382G-1-503GCT-ND/2080240?utm_medium=email&utm_source=oce&utm_campaign=3480_OCE21RT&utm_content=productdetail_US&utm_cid=1679481&so=67808724&mkt_tok=eyJpIjoiWkRVelpqZ3hZVEl4T1RZeSIsInQiOiJuMXNcLzJmdG14Vk5VdjhwejlMdm9QcEg2XC9IZXJDZnIxemVzcUxIYk9VNHRrZW82dlcrUzNNWnVFY3g3Tjk3cTgwYkFtakZiRmo3VmRlQWQzWEZPZTNXaG1VcTliMG5mSG9YRjY4Z1FvUU5JWkNsbmJnZm9YZkpCUmNaOXRXNEVGIn0%3D)
+
 ## Bowl Overfill Detection - PhotoElectric Switch
 
 We are using an PhotoElectric Switch to determine whether the bowl is full or not.
 
 <img src="img/photoelectricswitch-pinout.jpg"/>
 
-We plan on buying [this one](https://www.amazon.com/Infrared-Avoidance-Transmitting-Receiving-Photoelectric/dp/B07PFCC76N/ref=sr_1_1_sspa?dchild=1&keywords=ir+sensor&qid=1611867120&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExSEVUOVhPWDRGM0VPJmVuY3J5cHRlZElkPUEwMTE1NTYzMjIxMUFQUVFRUFFGUiZlbmNyeXB0ZWRBZElkPUExMDEyMzcyMU9aR0JHOUFHSk1GUSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=)
+The PhotoElectric Switch can be purchased [here](https://www.amazon.com/Infrared-Avoidance-Transmitting-Receiving-Photoelectric/dp/B07PFCC76N/ref=sr_1_1_sspa?dchild=1&keywords=ir+sensor&qid=1611867120&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExSEVUOVhPWDRGM0VPJmVuY3J5cHRlZElkPUEwMTE1NTYzMjIxMUFQUVFRUFFGUiZlbmNyeXB0ZWRBZElkPUExMDEyMzcyMU9aR0JHOUFHSk1GUSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=)
 
 ### PhotoElectric Switch Pinout
 
@@ -169,6 +173,8 @@ We plan to use an RC522 RFID reader.
 <img src="img/RC522-RFID-Reader-Writer-Module-Pinout.png"/>
 
 More documentation can be found [Here](https://lastminuteengineers.com/how-rfid-works-rc522-arduino-tutorial/)
+
+The RC522 RFID Reader can be purchased [here](https://www.amazon.com/gp/product/B07KGBJ9VG/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 
 ### RC522 Pinout
 
