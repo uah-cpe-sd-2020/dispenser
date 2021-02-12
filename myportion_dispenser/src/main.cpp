@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#define LED 2
+#include "pinout.h"
 
 void setup() {
   // put your setup code here, to run once:
