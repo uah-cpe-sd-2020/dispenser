@@ -27,6 +27,4 @@
 /// Angular position sensor
 #define POS A0
 
-#define LED 2
-
 #endif

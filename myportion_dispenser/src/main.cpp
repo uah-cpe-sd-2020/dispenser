@@ -1,19 +1,31 @@
 #include <Arduino.h>
 
 #include "pinout.h"
+#include "motors.h"
+
+int state;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(115200);
-  pinMode(LED, OUTPUT);
+  setupAGR();
+  setupBWL();
 }
 
+int steps=400;
+int sleepTime = 10000;
+
 void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(LED, HIGH);
-  Serial.println("LED is on");
-  delay(1000);
-  digitalWrite(LED, LOW);
-  Serial.println("LED is off");
-  delay(1000);
+  Serial.println("Forward");
+  fwdAGR();
+  wakeAGR();
+  stpAGR(steps);
+  slpAGR();
+  delay(sleepTime);
+
+  Serial.println("Backward");
+  bwdAGR();
+  wakeAGR();
+  stpAGR(steps);
+  slpAGR();
+  delay(sleepTime);
 }
