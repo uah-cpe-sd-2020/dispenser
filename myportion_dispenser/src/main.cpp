@@ -11,11 +11,15 @@ int state;
 void setup() {
   setupSerialMonitoring();
   setupAGR();
-  // setupBWL();
+  setupBWL();
   setupPES();
 }
 
 void loop() {
-  Serial.println("We're printing");
+  Serial.println("Testing Auger");
+  testAGR();
+  delay(1000);
+  Serial.println("Testing Bowl");
+  testBWL();
   delay(1000);
 }

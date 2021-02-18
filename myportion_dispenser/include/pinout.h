@@ -2,19 +2,19 @@
 #define PINOUT_H
 
 /// Stepper Driver Auger
-#define STPR_AGR_RST 00
-#define STPR_AGR_SLP 02
-#define STPR_AGR_STP 14
-#define STPR_AGR_DIR 12
+#define STPR_AGR_RST 05
+#define STPR_AGR_SLP 04
+#define STPR_AGR_STP 00
+#define STPR_AGR_DIR 02
 
 /// Stepper Driver Bowl
-#define STPR_BWL_RST 13
-#define STPR_BWL_SLP 15
-#define STPR_BWL_STP 03
-#define STPR_BWL_DIR 01
+#define STPR_BWL_RST 14
+#define STPR_BWL_SLP 12
+#define STPR_BWL_STP 13
+#define STPR_BWL_DIR 15
 
 /// Photo Electric Switch (PES)
-#define PES 05
+#define PES 16
 
 /// RC522 RFID Reader
 #define RFID_CS 11
