@@ -45,6 +45,7 @@ void testSTPRs() {
     stpBWL(200);
     stpAGR(200);
     
+    slpSTPRs();
     delay(2000);
 }
 
