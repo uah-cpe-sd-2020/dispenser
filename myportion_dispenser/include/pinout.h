@@ -1,20 +1,18 @@
 #ifndef PINOUT_H
 #define PINOUT_H
 
+/// Steppers have SLP and RST tied together
+#define STPR_SLP_RST D3
+#define STPR_DIR D0
+
 /// Stepper Driver Auger
-#define STPR_AGR_RST 05
-#define STPR_AGR_SLP 04
-#define STPR_AGR_STP 00
-#define STPR_AGR_DIR 02
+#define STPR_AGR_STP D2
 
 /// Stepper Driver Bowl
-#define STPR_BWL_RST 14
-#define STPR_BWL_SLP 12
-#define STPR_BWL_STP 13
-#define STPR_BWL_DIR 15
+#define STPR_BWL_STP D4
 
 /// Photo Electric Switch (PES)
-#define PES 16
+#define PES D1
 
 /// RC522 RFID Reader
 #define RFID_CS 11

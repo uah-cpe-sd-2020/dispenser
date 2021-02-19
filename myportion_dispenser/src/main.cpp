@@ -10,16 +10,14 @@ int state;
 
 void setup() {
   setupSerialMonitoring();
-  setupAGR();
-  setupBWL();
   setupPES();
+  setupSTPRs();
 }
 
 void loop() {
-  Serial.println("Testing Auger");
-  testAGR();
-  delay(1000);
-  Serial.println("Testing Bowl");
-  testBWL();
-  delay(1000);
+  if(PESpending) {
+    Serial.println("Testing Steppers");
+    testSTPRs();
+    PESpending = false;
+  }
 }
