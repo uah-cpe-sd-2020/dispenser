@@ -23,7 +23,6 @@ void setupRFID(void) {
 
     /* setup the IRQ pin*/
     pinMode(RFID_IRQ, INPUT_PULLUP);
-    Serial.println("E");
     /*
     * Allow the ... irq to be propagated to the IRQ pin
     * For test purposes propagate the IdleIrq and loAlert
