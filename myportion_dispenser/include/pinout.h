@@ -15,11 +15,11 @@
 #define PES D1
 
 /// RC522 RFID Reader
-#define RFID_CS 11
-#define RFID_SCK 06
-#define RFID_MOSI 08
-#define RFID_MISO 07
-#define RFID_IRQ 09
+#define RFID_CS D8
+#define RFID_SCK D5
+#define RFID_MOSI D7
+#define RFID_MISO D6
+#define RFID_IRQ 9
 #define RFID_RST 10
 
 /// Angular position sensor
