@@ -37,10 +37,10 @@ The NodeMCU can be purchased [here](https://www.amazon.com/gp/product/B081CSJV2V
 | RESERVED  |  |  |
 | GPIO.10   | RC522.2 | RFID RST |
 | GPIO.09   | RC522.4 | Interrupt that RFID Arrived |
-| MOSI      | RC522.6 | RFID MOSI |
-| CS        | RC522.8 | RFID Chip Select |
-| MISO      | RC522.5 | RFID MISO |
-| SCLK      | RC522.7 | RFID Serial Clock |
+| MOSI      |  |  |
+| CS        |  |  |
+| MISO      |  |  |
+| SCLK      |  |  |
 | GND       |  |  |
 | 3.3V      |  |  |
 | EN        |  |  |
@@ -52,19 +52,19 @@ The NodeMCU can be purchased [here](https://www.amazon.com/gp/product/B081CSJV2V
 
 | Pin       | Connected To | Purpose |
 | ---       | ------------ | ------- |
-| GPIO.16   |  |  |
+| GPIO.16   | A4988.B.08 / A4988.A.08 | Bowl Driver DIR / Auger Driver DIR |
 | GPIO.05   | PES.Out | Photo Electric Switch |
-| GPIO.04   |  |  |
-| GPIO.00   | A4988.B.05 | Auger Driver RST |
-| GPIO.02   | A4988.B.06 | Auger Driver SLP |
+| GPIO.04   | A4988.B.07 | Auger Driver STEP |
+| GPIO.00   | A4988.B.05 / A4988.B.06 / A4988.A.05 / A4988.A.06 | Auger Driver RST / Auger Driver SLP / Bowl Driver SLP / Bowl Driver RST |
+| GPIO.02   | A4988.A.07 | Bowl Driver STEP |
 | 3.3V      |  |  |
 | GND       |  |  |
-| GPIO.14   | A4988.B.07 | Auger Driver STEP |
-| GPIO.12   | A4988.B.08 | Auger Driver DIR |
-| GPIO.13   | A4988.A.05 | Bowl Driver RST |
-| GPIO.15   | A4988.A.06 | Bowl Driver SLP |
-| GPIO.03   | A4988.A.07 | Bowl Driver STEP |
-| GPIO.01   | A4988.A.08 | Bowl Driver DIR |
+| GPIO.14   | RC522.7 | RFID Serial Clock |
+| GPIO.12   | RC522.5 | RFID MISO |
+| GPIO.13   | RC522.6 | RFID MOSI |
+| GPIO.15   | RC522.8 | RFID Chip Select |
+| GPIO.03   |  |  |
+| GPIO.01   |  |  |
 | GND       |  |  |
 | 3.3V      |  |  |
 
@@ -100,10 +100,10 @@ The drivers can be found for purchase [here](https://www.amazon.com/HiLetgo-Step
 | 02 MS1    | Vcc | Sets to Half Step Resolution |
 | 03 MS2    | GND | Sets to Half Step Resolution |
 | 04 MS2    | GND | Sets to Half Step Resolution |
-| 05 RST    | NodeMCU.GPIO.13 |  |
-| 06 SLP    | NodeMCU.GPIO.15 |  |
-| 07 STEP   | NodeMCU.GPIO.03 |  |
-| 08 DIR    | NodeMCU.GPIO.01 |  |
+| 05 RST    | NodeMCU.GPIO.00 |  |
+| 06 SLP    | NodeMCU.GPIO.00 |  |
+| 07 STEP   | NodeMCU.GPIO.02 |  |
+| 08 DIR    | NodeMCU.GPIO.16 |  |
 | 09 GND    |  |  |
 | 10 VDD    | 3 or 5V |  |
 | 11 1B     | Stepper |  |
@@ -124,9 +124,9 @@ The drivers can be found for purchase [here](https://www.amazon.com/HiLetgo-Step
 | 03 MS2    | GND | Sets to Half Step Resolution |
 | 04 MS2    | GND | Sets to Half Step Resolution |
 | 05 RST    | NodeMCU.GPIO.00 |  |
-| 06 SLP    | NodeMCU.GPIO.02 |  |
-| 07 STEP   | NodeMCU.GPIO.14 |  |
-| 08 DIR    | NodeMCU.GPIO.12 |  |
+| 06 SLP    | NodeMCU.GPIO.00 |  |
+| 07 STEP   | NodeMCU.GPIO.04 |  |
+| 08 DIR    | NodeMCU.GPIO.16 |  |
 | 09 GND    |  |  |
 | 10 VDD    | 3 or 5V |  |
 | 11 1B     | Stepper |  |
@@ -180,10 +180,10 @@ The RC522 RFID Reader can be purchased [here](https://www.amazon.com/gp/product/
 
 | Pin   | Connected to | Purpose |
 | ---   | ------------ | ------- |
-| 8     | NodeMCU.CS | Chip Select |
-| 7     | NodeMCU.SCK | Serial Clock |
-| 6     | NodeMCU.MOSI |  |
-| 5     | NodeMCU.MISO |  |
+| 8     | NodeMCU.GPIO.15 | Chip Select |
+| 7     | NodeMCU.GPIO.14 | Serial Clock |
+| 6     | NodeMCU.GPIO.13 |  |
+| 5     | NodeMCU.GPIO.12 |  |
 | 4     | NodeMCU.GPIO.09 | IRQ alerts micro-controller of RFID present |
 | 3     | GND |  |
 | 2     | NodeMCU.GPIO.10 | RST.  Board resets when low input is received |
