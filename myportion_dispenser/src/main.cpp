@@ -1,36 +1,34 @@
 #include <Arduino.h>
 
+#include "serial.h"
 #include "pinout.h"
 #include "motors.h"
 #include "pes.h"
+#include "rfid-reader.h"
 
 int state;
 
 void setup() {
-  Serial.begin(115200);
-  setupAGR();
-  setupBWL();
+  setupSerialMonitoring();
   setupPES();
+  setupSTPRs();
+  setupRFID();
+  Serial.println("End of Setup");
 }
 
-int steps=400;
-int sleepTime = 1000;
-
 void loop() {
-  int pesVal = getPESVal();
-  if(pesVal) {
-    Serial.println("Forward");
-    fwdAGR();
-    wakeAGR();
-    stpAGR(steps);
-    slpAGR();
-    delay(sleepTime);
-  } else {
-  Serial.println("Backward");
-    bwdAGR();
-    wakeAGR();
-    stpAGR(steps);
-    slpAGR();
-    delay(sleepTime);
+  if(PESpending) {
+    Serial.println("Testing Steppers");
+    testSTPRs();
+    PESpending = false;
   }
+
+  if (bNewInt) { //new read interrupt
+    handleRFIDInterrupt();
+  }
+
+  // The receiving block needs regular retriggering (tell the tag it should transmit??)
+  // (mfrc522.PCD_WriteRegister(mfrc522.FIFODataReg,mfrc522.PICC_CMD_REQA);)
+  activateRec(mfrc522);
+  delay(100);
 }
