@@ -157,6 +157,12 @@ void wifiHeartBeatPrint(void)
     } else if (num++ % 10 == 0) {
         Serial.print(" ");
     }
+
+    // IPAddress address;
+    // if(WiFi.hostByName("Google.com", address, 3000) == 1) {
+    //     Serial.print(":  Successfully resolved google to ");
+    //     Serial.println(address);
+    // }
 }
 
 void checkWiFi(void)
