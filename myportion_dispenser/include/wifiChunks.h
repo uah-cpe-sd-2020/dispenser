@@ -111,15 +111,15 @@ bool initialConfig = false;
 #define USE_DHCP_IP true
 #else
 // You can select DHCP or Static IP here
-//#define USE_DHCP_IP     true
-#define USE_DHCP_IP false
+#define USE_DHCP_IP     true
+// #define USE_DHCP_IP false
 #endif
 
 #if (USE_DHCP_IP || (defined(USE_STATIC_IP_CONFIG_IN_CP) && !USE_STATIC_IP_CONFIG_IN_CP))
 // Use DHCP
 #warning Using DHCP IP
 IPAddress stationIP = IPAddress(0, 0, 0, 0);
-IPAddress gatewayIP = IPAddress(192, 168, 2, 1);
+IPAddress gatewayIP = IPAddress(0, 0, 0, 0);
 IPAddress netMask = IPAddress(255, 255, 255, 0);
 #else
 // Use static IP
@@ -134,6 +134,7 @@ IPAddress netMask = IPAddress(255, 255, 255, 0);
 #define USE_CONFIGURABLE_DNS true
 
 IPAddress dns1IP = gatewayIP;
+// IPAddress dns2IP = gatewayIP;
 IPAddress dns2IP = IPAddress(8, 8, 8, 8);
 
 #include <ESP_WiFiManager.h> //https://github.com/khoih-prog/ESP_WiFiManager
@@ -288,8 +289,9 @@ void setupWifi()
     if (FORMAT_FILESYSTEM)
         FileFS.format();
 
-    // Format FileFS if not yet
-    if (!FileFS.begin()) {
+        // Format FileFS if not yet
+    if (!FileFS.begin())
+    {
         Serial.print(FS_Name);
         Serial.println(F(" failed! AutoFormatting."));
 
