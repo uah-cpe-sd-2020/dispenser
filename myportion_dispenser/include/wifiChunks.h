@@ -6,7 +6,7 @@
 #endif
 
 // Use from 0 to 4. Higher number, more debugging messages and memory usage.
-#define _WIFIMGR_LOGLEVEL_ 3
+#define _WIFIMGR_LOGLEVEL_ 0
 
 #include <ESP8266WiFi.h> //https://github.com/esp8266/Arduino
 //needed for library
@@ -141,6 +141,7 @@ IPAddress dns2IP = IPAddress(8, 8, 8, 8);
 
 // Function Prototypes
 uint8_t connectMultiWiFi(void);
+void setupWifi(void);
 
 void wifiHeartBeatPrint(void)
 {
@@ -160,7 +161,7 @@ void wifiHeartBeatPrint(void)
 
     // IPAddress address;
     // if(WiFi.hostByName("Google.com", address, 3000) == 1) {
-    //     Serial.print(":  Successfully resolved google to ");
+    //     Serial.print("[WM] Successfully resolved google to ");
     //     Serial.println(address);
     // }
 }
@@ -168,7 +169,7 @@ void wifiHeartBeatPrint(void)
 void checkWiFi(void)
 {
     if ((WiFi.status() != WL_CONNECTED)) {
-        Serial.println("\nWiFi lost. Call connectMultiWiFi in loop");
+        Serial.println("\n[WM] WiFi lost. Call connectMultiWiFi in loop");
         connectMultiWiFi();
     }
 }
@@ -280,8 +281,18 @@ uint8_t connectMultiWiFi(void)
         LOGERROR1(F("WiFi connected after time: "), i);
         LOGERROR3(F("SSID:"), WiFi.SSID(), F(",RSSI="), WiFi.RSSI());
         LOGERROR3(F("Channel:"), WiFi.channel(), F(",IP address:"), WiFi.localIP());
-    } else
+    } else {
         LOGERROR(F("WiFi not connected"));
+        static uint16_t numRetries = 0;
+        #define MAX_NUM_RETRIES 50U
+        ;
+        if (numRetries++ > MAX_NUM_RETRIES)
+        {
+            numRetries = 0;
+            setupWifi();
+        }
+        
+    }
 
     return status;
 }
@@ -289,7 +300,7 @@ uint8_t connectMultiWiFi(void)
 void setupWifi()
 {
 
-    Serial.print("\nStarting AutoConnectAP using " + String(FS_Name));
+    Serial.print("\n[WM] Starting AutoConnectAP using " + String(FS_Name));
     Serial.println(" on " + String(ARDUINO_BOARD));
 
     if (FORMAT_FILESYSTEM)
@@ -298,6 +309,7 @@ void setupWifi()
         // Format FileFS if not yet
     if (!FileFS.begin())
     {
+        Serial.print("[WM] ");
         Serial.print(FS_Name);
         Serial.println(F(" failed! AutoFormatting."));
 
@@ -317,7 +329,7 @@ void setupWifi()
     // ESP_wifiManager.resetSettings();
 
     //set custom ip for portal
-    ESP_wifiManager.setAPStaticIPConfig(IPAddress(192, 168, 100, 1), IPAddress(192, 168, 100, 1), IPAddress(255, 255, 255, 0));
+    ESP_wifiManager.setAPStaticIPConfig(IPAddress(192, 168, 4, 1), IPAddress(192, 168, 4, 1), IPAddress(255, 255, 255, 0));
 
     ESP_wifiManager.setMinimumSignalQuality(-1);
 
@@ -338,7 +350,7 @@ void setupWifi()
 
     // New from v1.1.1
 #if USING_CORS_FEATURE
-    ESP_wifiManager.setCORSHeader("Your Access-Control-Allow-Origin");
+    ESP_wifiManager.setCORSHeader("[WM] Your Access-Control-Allow-Origin");
 #endif
 
     // We can't use WiFi.SSID() in ESP32 as it's only valid after connected.
@@ -348,13 +360,13 @@ void setupWifi()
     Router_Pass = ESP_wifiManager.WiFi_Pass();
 
     //Remove this line if you do not want to see WiFi password printed
-    Serial.println("Stored: SSID = " + Router_SSID + ", Pass = " + Router_Pass);
+    Serial.println("[WM] Stored: SSID = " + Router_SSID + ", Pass = " + Router_Pass);
 
     if (Router_SSID != "") {
         ESP_wifiManager.setConfigPortalTimeout(120); //If no access point name has been previously entered disable timeout.
-        Serial.println("Got stored Credentials. Timeout 120s");
+        Serial.println("[WM] Got stored Credentials. Timeout 120s");
     } else {
-        Serial.println("No stored Credentials. No timeout");
+        Serial.println("[WM] No stored Credentials. No timeout");
     }
 
     String chipID = String(ESP_getChipId(), HEX);
@@ -366,16 +378,16 @@ void setupWifi()
 
     // From v1.1.0, Don't permit NULL password
     if ((Router_SSID == "") || (Router_Pass == "")) {
-        Serial.println("We haven't got any access point credentials, so get them now");
+        Serial.println("[WM] We haven't got any access point credentials, so get them now");
 
         initialConfig = true;
 
         // Starts an access point
         //if (!ESP_wifiManager.startConfigPortal((const char *) ssid.c_str(), password))
         if (!ESP_wifiManager.startConfigPortal(AP_SSID.c_str(), AP_PASS.c_str()))
-            Serial.println("Not connected to WiFi but continuing anyway.");
+            Serial.println("[WM] Not connected to WiFi but continuing anyway.");
         else
-            Serial.println("WiFi connected...yeey :)");
+            Serial.println("[WM] WiFi connected...yeey :)");
 
         // Stored  for later usage, from v1.1.0, but clear first
         memset(&WM_config, 0, sizeof(WM_config));
@@ -421,18 +433,18 @@ void setupWifi()
         }
 
         if (WiFi.status() != WL_CONNECTED) {
-            Serial.println("ConnectMultiWiFi in setup");
+            Serial.println("[WM] ConnectMultiWiFi in setup");
 
             connectMultiWiFi();
         }
     }
 
-    Serial.print("After waiting ");
+    Serial.print("[WM] After waiting ");
     Serial.print((float)(millis() - startedAt) / 1000L);
     Serial.print(" secs more in setup(), connection result is ");
 
     if (WiFi.status() == WL_CONNECTED) {
-        Serial.print("connected. Local IP: ");
+        Serial.print("[WM] connected. Local IP: ");
         Serial.println(WiFi.localIP());
     } else
         Serial.println(ESP_wifiManager.getStatus(WiFi.status()));
