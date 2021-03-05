@@ -11,6 +11,7 @@ void setupSerialMonitoring() {
     {
         // Waiting to write
     }
+    delay(100);  
     Serial.println(" ");
     Serial.println("Serial Open");
 }
