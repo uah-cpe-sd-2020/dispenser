@@ -117,7 +117,7 @@ bool initialConfig = false;
 
 #if (USE_DHCP_IP || (defined(USE_STATIC_IP_CONFIG_IN_CP) && !USE_STATIC_IP_CONFIG_IN_CP))
 // Use DHCP
-#warning Using DHCP IP
+// #warning Using DHCP IP
 IPAddress stationIP = IPAddress(0, 0, 0, 0);
 IPAddress gatewayIP = IPAddress(0, 0, 0, 0);
 IPAddress netMask = IPAddress(255, 255, 255, 0);

@@ -4,6 +4,7 @@
 #include <SPI.h>
 #include <MFRC522.h>
 #include "pinout.h"
+#include "feedingWorkers.h"
 
 
 MFRC522 mfrc522(RFID_CS, RFID_RST);
@@ -70,6 +71,11 @@ void clearInt(MFRC522 mfrc522) {
 }
 
 void handleRFIDInterrupt(void) {
+  if (IS_DISPENSING)
+  {
+    CANCEL_DISPENSING = true;
+  }
+  
     Serial.print(F("Interrupt. "));
     mfrc522.PICC_ReadCardSerial(); //read the tag data
     // Show some details of the PICC (that is: the tag/card)

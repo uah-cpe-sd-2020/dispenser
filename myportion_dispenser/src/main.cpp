@@ -1,6 +1,7 @@
 #include <Arduino.h>
 
 #include "serial.h"
+#include "feedingWorkers.h"
 #include "pinout.h"
 #include "motors.h"
 #include "pes.h"
@@ -13,6 +14,7 @@ void setup() {
   setupSerialMonitoring();
   setupPES();
   setupSTPRs();
+  zeroBowl();
   setupRFID();
   setupWifi();
   Serial.println("End of Setup");
